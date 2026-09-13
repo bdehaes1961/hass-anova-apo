@@ -1,0 +1,104 @@
+start_cook:
+  name: Start cook
+  description: Start a cook on one or more Anova Precision Ovens.
+  target:
+    device:
+      integration: anova_apo
+  fields:
+    temperature:
+      name: Temperature
+      description: Cavity setpoint in degrees Celsius.
+      required: true
+      selector:
+        number:
+          min: 25
+          max: 250
+          step: 1
+          unit_of_measurement: "°C"
+    bulb_mode:
+      name: Bulb mode
+      description: dry is a normal oven cook, wet is sous-vide mode.
+      selector:
+        select:
+          options: [dry, wet]
+    steam_mode:
+      name: Steam mode
+      selector:
+        select:
+          options: [off, steam-percentage, relative-humidity]
+    steam_percentage:
+      name: Steam percentage
+      selector:
+        number:
+          min: 0
+          max: 100
+          unit_of_measurement: "%"
+    relative_humidity:
+      name: Relative humidity
+      selector:
+        number:
+          min: 0
+          max: 100
+          unit_of_measurement: "%"
+    fan_speed:
+      name: Fan speed
+      selector:
+        number:
+          min: 0
+          max: 100
+          step: 25
+          unit_of_measurement: "%"
+    heating_elements:
+      name: Heating elements
+      selector:
+        select:
+          options: [rear, top, bottom, top_bottom, all]
+    vent_open:
+      name: Vent open
+      selector:
+        boolean:
+    rack_position:
+      name: Rack position
+      selector:
+        number:
+          min: 1
+          max: 5
+    timer_seconds:
+      name: Timer
+      description: Cook timer in seconds. Mutually exclusive with the probe target.
+      selector:
+        number:
+          min: 0
+          max: 86400
+          step: 60
+          unit_of_measurement: s
+    probe_target:
+      name: Probe target
+      description: Core temperature target in degrees Celsius. Mutually exclusive with the timer.
+      selector:
+        number:
+          min: 0
+          max: 100
+          step: 0.5
+          unit_of_measurement: "°C"
+
+start_custom_cook:
+  name: Start custom cook
+  description: Start a cook from a raw Anova stage list (multi stage cooks).
+  target:
+    device:
+      integration: anova_apo
+  fields:
+    stages:
+      name: Stages
+      description: JSON list of Anova stage objects.
+      required: true
+      selector:
+        object:
+
+stop_cook:
+  name: Stop cook
+  description: Stop the running cook.
+  target:
+    device:
+      integration: anova_apo

@@ -1,0 +1,17 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Anova Precision Oven",
+        "description": "Paste the Anova access token (starts with anova-).",
+        "data": { "access_token": "Access token" }
+      }
+    },
+    "error": {
+      "invalid_auth": "The Anova cloud rejected this token.",
+      "cannot_connect": "Could not connect to the Anova cloud.",
+      "no_devices": "No ovens are paired to this account."
+    },
+    "abort": { "already_configured": "This Anova account is already configured." }
+  }
+}

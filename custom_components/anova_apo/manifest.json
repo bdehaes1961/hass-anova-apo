@@ -1,0 +1,13 @@
+{
+  "domain": "anova_apo",
+  "name": "Anova Precision Oven",
+  "codeowners": ["@bdehaes1961"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/bdehaes1961/hass-anova-apo",
+  "integration_type": "hub",
+  "iot_class": "cloud_push",
+  "issue_tracker": "https://github.com/bdehaes1961/hass-anova-apo/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}
